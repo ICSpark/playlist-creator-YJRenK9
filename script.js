@@ -1,6 +1,40 @@
+// array that's used to store songs
+let playlist = [];
 
+function addSong() {
+    // gets the title from 1st input box
+    let theTitle = document.getElementById("songTitle").value;
+    // gets the artist from the 2nd input box 
+    let theArtist = document.getElementById("artist").value;
+    // gets the duration from the 3rd input box
+    let theDuration = document.getElementById("duration").value;
 
+    // object that stores title, artist, and duration
+    let Song = {
+        songTitle: theTitle,
+        songArtist: theArtist,
+        songDuration: theDuration
+    };
 
+    // checks if at least one of the inputs is empty
+    if (theTitle === '' || theArtist === '' || theDuration === '') {
+        // display error message
+        alert("Fill in all the boxes!");
+        // stop script.js
+        return;
+    }
+
+    // add song to the playlist
+    playlist.push(Song);
+
+    // premade function that displays songs from the playlist on the web page
+    displayPlaylist();
+
+    // clear input values after adding a song
+    document.getElementById("songTitle").value = '';
+    document.getElementById("artist").value = '';
+    document.getElementById("duration").value = '';
+}
 
 
 
